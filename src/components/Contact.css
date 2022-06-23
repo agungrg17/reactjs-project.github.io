@@ -1,0 +1,24 @@
+.Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.Contact {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 30vh;
+    margin: 1rem 0;
+    border-radius: 1rem;
+    background-color: #a9ced9;
+    border-radius: 30px;
+    box-shadow: 10px 22px 0px -8px rgba(231, 230, 230, 0.5);
+  }
+  
+  img {
+    width: 25vh;
+    border-radius: 50%;
+  }

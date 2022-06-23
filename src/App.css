@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,55 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+/* .App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+} */
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background-color:lightskyblue;
+  min-height: 100vh;
 }
+
+.title {
+  background-color: dodgerblue;
+  color: white;
+  width: fit-content;
+  align-self: center;
+  padding: 10px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: auto;
+  background-color: aliceblue;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.todo-list {
+  width: fit-content;
+}
+
+.todo-form span {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-form p {
+  text-align: center;
+}
+
+.todo-form input {
+  width: 80%;
+}
+
