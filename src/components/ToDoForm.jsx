@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Button, TextField } from '@mui/material';
 
 const ToDoForm = ({ handleSubmit }) => {
   const [todo, setTodo] = useState(" ");
@@ -15,14 +16,31 @@ const ToDoForm = ({ handleSubmit }) => {
       <p>~ Today I need to ~</p>
       <form action='' onSubmit={submitHandler}>
       <span>
-        <input 
+      <TextField
+          label="Task"
+          variant="filled"
+          value={todo}
+          onChange={(e) => {
+            setTodo(e.target.value);
+          }}
+        />
+        <Button
+          variant="contained"
+          onClick={() => {
+            handleSubmit(todo);
+            setTodo("");
+          }}
+        >
+          Submit
+        </Button>
+        {/* <input 
         value={todo} 
         onChange={(event) => setTodo(event.target.value)}/>
         <input 
         value={todo} 
         onChange={(event) => setTodo(event.target.value)}/>
         <button type='submit'>
-          Submit</button>
+          Submit</button> */}
       </span>
       <p> {todo} </p>
       </form>

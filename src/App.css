@@ -86,4 +86,11 @@
 .todo-form input {
   width: 80%;
 }
+.todo-form span > *:first-child {
+  width: 80%;
+}
+
+.completed {
+  text-decoration-line: line-through;
+}
 
