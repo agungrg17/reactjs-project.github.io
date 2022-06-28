@@ -158,15 +158,27 @@
 import './App.css';
 
 import React from 'react';
-import contacts from './data/contacts.json';
-import Contact from './components/Contact';
-import Header from './components/Header';
-import ToDo from './containers/ToDo';
+// import contacts from './data/contacts.json';
+// import Contact from './components/Contact';
+// import Header from './components/Header';
+// import ToDo from './containers/ToDo';
+// import NestedComponent from './containers/NestedComponent';
+// import NestedComponentWithContext from './containers/NestedComponentWithContext';
+// import NestedComponentWithContextPart2 from './containers/NestedComponentWithContextPart2';
+import ToDoWithReducer from './containers/ToDoWithReducer.jsx';
+import TaskApp from './containers/TaskApp';
+import TaskAppWithReducer from './containers/TaskAppWithReducer';
 
 const App = () => {
   return (
     <div className="App">
-      <ToDo />
+      {/* <ToDo /> */}
+      <ToDoWithReducer />
+      <TaskApp />
+      <TaskAppWithReducer />
+      {/* <NestedComponent />
+      <NestedComponentWithContext />
+      <NestedComponentWithContextPart2 />
       <Header />
       {
         contacts.map((contact) => {
@@ -174,7 +186,7 @@ const App = () => {
             <Contact key={contact.phone} data={contact} />
           )
         })
-      }    
+      }     */}
 
     </div>
   );

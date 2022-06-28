@@ -44,18 +44,6 @@ const ToDoForm = ({ handleSubmit }) => {
       </span>
       <p> {todo} </p>
       </form>
-      {/* <span>
-        <input 
-        value={todo} 
-        onChange={(event) => setTodo(event.target.value)}/>
-        <input 
-        value={todo} 
-        onChange={(event) => setTodo(event.target.value)}/>
-        <button 
-        onClick={() => submitHandler(todo)}>
-          Submit</button>
-      </span>
-      <p> {todo} </p> */}
     </div>
   );
 };

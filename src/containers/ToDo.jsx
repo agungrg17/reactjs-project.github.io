@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Button} from '@mui/material';
 
 import ToDoForm from '../components/ToDoForm';
@@ -11,6 +11,10 @@ const ToDo = () => {
     // {id: 1, task: "menyapu", complete: false},
     // {id: 2, task: "mengepel", complete: true}
   ]);
+
+  useEffect(() => {
+    document.title = `You Have ${todos.length} Todo`  
+  }, [todos]); // Dependency
 
   // const handleSubmit = (todo) => {
   //   setTodos([...todos, todo]);
