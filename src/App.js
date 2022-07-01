@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import themes from './themes/themes.js';
+import ResponsiveNavbar from './components/ResponsiveNavbar';
+import {ThemeProvider} from '@mui/material';
+import MovieList from './containers/MovieList.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // Gunakan ThemeProvider di sini
+    // Inject Context Theme di sini
+    <ThemeProvider theme={themes}>
+      <div className="App">
+        <ResponsiveNavbar ></ResponsiveNavbar>
+        <section style={{ paddingLeft: 16, paddingRight: 16 }}>
+          <MovieList />
+        </section>
+      </div>
+
+      {/* Jangan lupa ditutup */}
+    </ThemeProvider>
   );
 }
 
 export default App;
+ 
