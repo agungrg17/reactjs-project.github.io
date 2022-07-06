@@ -10,7 +10,7 @@ const BASE_IMAGE_URL = "http://image.tmdb.org/t/p/original";
 
 const MovieCard = ({ movie }) => {
   return (
-    <Card id={movie.id} sx={{ display: 'flex', width: 600, margin: 2 }}>
+    <Card id={movie.id} sx={{ display: 'flex', width: 500, margin: 1 }}>
       <CardMedia
         component="img"
         sx={{ width: 150, height: 225 }}
@@ -38,7 +38,7 @@ const MovieCard = ({ movie }) => {
             }}
           >
             <Rating name="read-only" precision={0.1} value={movie.vote_average / 2} max={5} readOnly />
-            <Box sx={{ ml: 2 }}>{movie.vote_average.toFixed(2)}</Box>
+            <Box sx={{ ml: 2 }}>{movie.vote_average.toFixed(1)}</Box>
           </Box>
             {/* <Typography variant="body2" sx={{mt: 1}}>
                 {movie.release_date}

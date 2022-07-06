@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,17 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.nav-inactive {
+  color: inherit;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.nav-active {
+  color: inherit;
+  padding: 10px;
+  letter-spacing: 1px;
+  text-underline-offset: 5px;
 }

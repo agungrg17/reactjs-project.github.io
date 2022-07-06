@@ -3,7 +3,7 @@ import tmdb from "../apis/tmdb";
 import React, { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 
-import "../components/MovieCard.css";
+// import "../components/MovieCard.css";
 import MovieCard from "../components/MovieCard";
 
 const MovieList = () => {
@@ -35,7 +35,7 @@ const MovieList = () => {
             display: 'flex',
             flexDirection: 'row',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
+            justifyContent: 'space-around',
             mt: 1,
         }}
     >
