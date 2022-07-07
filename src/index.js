@@ -4,13 +4,8 @@ import './index.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore as createStore } from 'redux';
-import rootReducer from './RootReducers';
 import { Provider } from 'react-redux';
-
-const intialState = { user: 'Agung', balance: 500000 };
-
-const store = createStore(rootReducer, intialState);
+import store from './app/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
