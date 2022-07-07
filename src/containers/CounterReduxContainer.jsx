@@ -6,12 +6,22 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 // useSelector = adalah suatu hooks yang memperbolehkan kita memilih global state yang digunakan
 // useDispatch = adalah suatu hooks yang memperbolehkan kita memilih action apa yang ingin dilakukan
 import { useDispatch, useSelector } from "react-redux";
+import { selectUser, selectCounter } from "../features/counter/sliceCounter";
+
+import {
+    increment,
+    decrement,
+    reset,
+    incrementSpec,
+    decrementSpec,
+  } from "../features/counter/sliceCounter.js";  
 
 const CounterReduxContainer = () => {
   // useSelector ini menerima sebuah fungsi dengan satu parameter "state"
   // anggap saja ini seperti "filter"
-  const username = useSelector((state) => state.user);
-  const counter = useSelector((state) => state.counter);
+  const username = useSelector(selectUser);
+  const counter = useSelector(selectCounter);
+
 
   const [currAmount, setCurrAmount] = useState(0);
 
@@ -19,24 +29,31 @@ const CounterReduxContainer = () => {
   const dispatcher = useDispatch();
 
   const buttonDecrementOnClickHandler = () => {
-    // Di sini kita akan memanggil dispatcher-nya,
-    // jangan lupa untuk melemparkan aksi apa yang ingin dilakukan via
-    // props "type"
-    dispatcher({
-      type: "decrement",      
-    });
+    // Perhatikan di sini dispatcher tidak mempassing action seperti biasa lagi
+    // dispatcher({
+    //   type: "decrement",
+    // });
+
+    // Action di sini dipanggil seperti kita memanggil fungsi biasanya
+    dispatcher(decrement());
   };
 
   const buttonResetOnClickHandler = () => {
-    dispatcher({
-      type: "reset",
-    });
+    // dispatcher({
+    //   type: "reset",
+    // });
+
+    // Perhatikan di sini dispatcher tidak mempassing action seperti biasa lagi
+    dispatcher(reset());
   };
 
   const buttonIncrementOnClickHandler = () => {
-    dispatcher({
-      type: "increment",
-    });
+    // dispatcher({
+    //   type: "increment",
+    // });
+
+    // Perhatikan di sini dispatcher tidak mempassing action seperti biasa lagi
+    dispatcher(increment());
   };
 
   // Fungsi yang dibutuhkan untuk part 2
@@ -49,19 +66,29 @@ const CounterReduxContainer = () => {
   };
 
   const buttonDecrementByAmountOnClickHandler = () => {
-    // Kita panggil dispatcher lagi !
-    dispatcher({
-      type: "decrementSpec",
-      amount: currAmount,
-    });
+    // dispatcher({
+    //   type: "decrementSpec",
+    //   amount: currAmount,
+    // });
+
+    // Perhatikan di sini kita akan memanggil dispatcher
+    // untuk memanggil suatu action yang memiliki payload
+
+    // Karena tadi di dalam reducers incrementSpec
+    // Kita hanya -= action.payload
+    // maka di sini kita langsung passing payload angkanya saja
+    dispatcher(decrementSpec(currAmount));
   };
 
   const buttonIncrementByAmountOnClickHandler = () => {
     // Kita panggil dispatcher lagi !
-    dispatcher({
-      type: "incrementSpec",
-      amount: currAmount,
-    });
+    // dispatcher({
+    //   type: "incrementSpec",
+    //   amount: currAmount,
+    // });
+
+    // Sama dengan yang di atas
+    dispatcher(incrementSpec(currAmount));
   };
 
   return (
