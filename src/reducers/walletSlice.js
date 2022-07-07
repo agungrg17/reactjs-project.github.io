@@ -10,10 +10,10 @@ const walletSlice = createSlice({
       // Di sini seakan-akan langsung mengubah state,
       // Tapi sebenarnya tidak karena menggunakan Immer library
       // Untuk nama parameternya akan selalu menjadi payload
-      state.balance += action.payload;
+      state.balance += action.payload.amount;
     },
     withdraw: (state, action) => {
-      state.balance -= action.payload;
+      state.balance -= action.payload.amount;
     },
   },
 });
