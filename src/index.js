@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
-import { legacy_createStore as createStore } from 'react-redux';
+import { legacy_createStore as createStore } from 'redux';
 import rootReducer from './RootReducers';
 import { Provider } from 'react-redux';
 
