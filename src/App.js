@@ -1,11 +1,20 @@
 //import logo from './logo.svg';
 import './App.css';
-import Wallet from './containers/Wallet';
+import React from "react";
+//import Wallet from './containers/Wallet';
+import NavBar from "./components/NavBar.jsx";
+
+import { Outlet } from "react-router-dom";
+import { Box } from "@mui/material";
 
 function App() {
   return (
     <div className="App">
-      <Wallet />
+      <NavBar />
+      <Box sx={{ p: 3 }}>
+        <Outlet />
+      </Box>
+      {/* <Wallet /> */}
     </div>
   );
 }

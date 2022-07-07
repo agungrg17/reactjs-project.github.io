@@ -4,17 +4,36 @@ import './index.css';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './app/store';
+//import { Provider } from 'react-redux';
+//import store from './app/store';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CounterReducerContainer from "./containers/CounterReducerContainer";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Provider store={store} >
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="use-reducer" element={<CounterReducerContainer />} />
+          <Route
+            path="react-redux"
+            element={
+              <>
+                <h1>React Redux</h1>
+              </>
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
+  // <React.StrictMode>
+  //   <Provider store={store} >
+  //     <App />
+  //   </Provider>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
