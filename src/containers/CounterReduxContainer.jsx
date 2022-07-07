@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Box, Button, TextField, Typography } from "@mui/material";
 
@@ -13,6 +13,8 @@ const CounterReduxContainer = () => {
   const username = useSelector((state) => state.user);
   const counter = useSelector((state) => state.counter);
 
+  const [currAmount, setCurrAmount] = useState(0);
+
   // Untuk menggunakan dispatch (action) nya, kita gunakan dispatcher dari hooks useDispatch
   const dispatcher = useDispatch();
 
@@ -21,8 +23,7 @@ const CounterReduxContainer = () => {
     // jangan lupa untuk melemparkan aksi apa yang ingin dilakukan via
     // props "type"
     dispatcher({
-      type: "decrementSpec",
-      amount: 10,       
+      type: "decrement",      
     });
   };
 
@@ -34,8 +35,32 @@ const CounterReduxContainer = () => {
 
   const buttonIncrementOnClickHandler = () => {
     dispatcher({
+      type: "increment",
+    });
+  };
+
+  // Fungsi yang dibutuhkan untuk part 2
+  const textFieldAmountOnChangeHandler = (e) => {
+    const amountFromField = isNaN(parseInt(e.target.value))
+      ? 0
+      : parseInt(e.target.value);
+
+    setCurrAmount(amountFromField);
+  };
+
+  const buttonDecrementByAmountOnClickHandler = () => {
+    // Kita panggil dispatcher lagi !
+    dispatcher({
+      type: "decrementSpec",
+      amount: currAmount,
+    });
+  };
+
+  const buttonIncrementByAmountOnClickHandler = () => {
+    // Kita panggil dispatcher lagi !
+    dispatcher({
       type: "incrementSpec",
-      amount: 100,
+      amount: currAmount,
     });
   };
 
@@ -74,7 +99,7 @@ const CounterReduxContainer = () => {
             color="success"
             onClick={buttonDecrementOnClickHandler}
           >
-            -10
+            -1
           </Button>
           <Button
             variant="outlined"
@@ -88,7 +113,31 @@ const CounterReduxContainer = () => {
             color="success"
             onClick={buttonIncrementOnClickHandler}
           >
-            +100
+            +1
+          </Button>
+        </Box>
+
+        {/* Mari kita tambahkan Bagian baru di sini */}
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <TextField
+            label="amount"
+            size="small"
+            value={currAmount}
+            onChange={textFieldAmountOnChangeHandler}
+          />
+          <Button
+            variant="outlined"
+            color="success"
+            onClick={buttonDecrementByAmountOnClickHandler}
+          >
+            - Amount
+          </Button>
+          <Button
+            variant="outlined"
+            color="success"
+            onClick={buttonIncrementByAmountOnClickHandler}
+          >
+            + Amount
           </Button>
         </Box>
       </Box>
