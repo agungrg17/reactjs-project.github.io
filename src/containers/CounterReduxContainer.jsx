@@ -21,7 +21,8 @@ const CounterReduxContainer = () => {
     // jangan lupa untuk melemparkan aksi apa yang ingin dilakukan via
     // props "type"
     dispatcher({
-      type: "decrement",
+      type: "decrementSpec",
+      amount: 10,
     });
   };
 
@@ -33,7 +34,8 @@ const CounterReduxContainer = () => {
 
   const buttonIncrementOnClickHandler = () => {
     dispatcher({
-      type: "increment",
+      type: "incrementSpec",
+      amount: 100,
     });
   };
 
@@ -72,7 +74,7 @@ const CounterReduxContainer = () => {
             color="success"
             onClick={buttonDecrementOnClickHandler}
           >
-            -1
+            -10
           </Button>
           <Button
             variant="outlined"
@@ -86,7 +88,7 @@ const CounterReduxContainer = () => {
             color="success"
             onClick={buttonIncrementOnClickHandler}
           >
-            +1
+            +100
           </Button>
         </Box>
       </Box>
