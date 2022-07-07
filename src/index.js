@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
+import { legacy_createStore as createStore } from 'react-redux';
+import rootReducer from './RootReducers';
+import { Provider } from 'react-redux';
+
+const intialState = { user: 'Agung', balance: 500000 };
+
+const store = createStore(rootReducer, intialState);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store} >
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
