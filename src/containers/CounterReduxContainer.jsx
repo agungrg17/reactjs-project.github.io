@@ -22,7 +22,7 @@ const CounterReduxContainer = () => {
     // props "type"
     dispatcher({
       type: "decrementSpec",
-      amount: 10,
+      amount: 10,       
     });
   };
 
