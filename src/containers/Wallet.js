@@ -12,7 +12,7 @@ const Wallet = () => {
 
     useEffect(() => {
         dispatch(userAsync(3));
-    }, [])
+    }, [dispatch])
 
     return (
         <div>
