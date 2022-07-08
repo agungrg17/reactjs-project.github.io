@@ -22,6 +22,8 @@ import Wallet from "./containers/Wallet";
 
 // Kita import store dari app/store yang digunakan
 import store from "./app/store";
+import ColorList from "./containers/ColorList";
+import ColorForm from "./containers/ColorForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -31,7 +33,15 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route path='wallet' element={<Wallet />} />
+            <Route 
+              path='wallet' 
+              element={
+                <>
+                <Wallet />
+                <ColorList />
+                <ColorForm />
+                </>
+              } />
             <Route path="use-reducer" element={<CounterReducerContainer />} />
             <Route path="react-redux" element={<CounterReduxContainer />} />
           </Route>

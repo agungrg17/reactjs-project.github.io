@@ -9,6 +9,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // import slice yang baru saja dibuat
 import counterSlice from "../features/counter/sliceCounter.js";
 import walletSlice from '../reducers/walletSlice';
+import { colorAPI } from "../services/colorAPI.js";
 
 const store = configureStore({
   // --- CARA 1: Dengan cara redux ---
@@ -24,7 +25,11 @@ const store = configureStore({
     reducer: {
       wallet: walletSlice,
       counterRTK: counterSlice,
-    }
+      [colorAPI.reducerPath]: colorAPI.reducer
+    },
+    // Menambahkan middleware untuk caching, invalidation, polling
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(colorAPI.middleware),
 });
 
 export default store;
