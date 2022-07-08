@@ -11,6 +11,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      
       <Box sx={{ p: 3 }}>
         <Outlet />
       </Box>

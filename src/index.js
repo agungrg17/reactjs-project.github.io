@@ -16,7 +16,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import CounterReducerContainer from "./containers/CounterReducerContainer";
 import CounterReduxContainer from "./containers/CounterReduxContainer";
-
+import Wallet from "./containers/Wallet";
 // kita tidak menggunakan ini lagi
 // const store = createStore(rootReducer, initialValue);
 
@@ -31,6 +31,7 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route path='wallet' element={<Wallet />} />
             <Route path="use-reducer" element={<CounterReducerContainer />} />
             <Route path="react-redux" element={<CounterReduxContainer />} />
           </Route>

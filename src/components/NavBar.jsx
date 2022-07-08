@@ -8,6 +8,12 @@ const NavBar = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "flex" } }}>
+          <Link to="wallet" style={{ textDecoration: "none" }}>
+              {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                Wallet
+              </Button>
+            </Link>
             {/* Karena link ini bukan dari MUI yang kita gunakan adalah style, bukan sx */}
             <Link to="/use-reducer" style={{ textDecoration: "none" }}>
               {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
@@ -15,7 +21,6 @@ const NavBar = () => {
                 useReducer
               </Button>
             </Link>
-
             {/* Karena link ini bukan dari MUI yang kita gunakan adalah style, bukan sx */}
             <Link to="/react-redux" style={{ textDecoration: "none" }}>
               {/* Karena button ini dari MUI, maka yang kita gunakan adalah sx */}
